@@ -4,37 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eef2ff">
-  <title>프랑스어 발음 카드 · 집 문제 알리기</title>
+  <title>프랑스어 발음 카드 아카이브</title>
   <style>
-    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172033;background:#eef2ff;font-synthesis:none;text-rendering:optimizeLegibility}
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172033;background:#eef2ff;font-synthesis:none}
     *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#fff 0,#eef2ff 72%)}
-    main{width:min(760px,92vw);margin:42px auto;padding-bottom:36px}h1{font-size:clamp(1.65rem,5vw,2.3rem);margin:0 0 5px}.sub{color:#5b6476;margin:0}
-    .bar,.buttons{display:flex;flex-wrap:wrap;gap:9px}.bar{margin:22px 0}.card{background:#fff;border:1px solid #dce2f0;border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 9px 25px #28345b12}
-    .tag{font-size:.78rem;font-weight:750;letter-spacing:.1em;color:#3157d5}.fr{font:1.7rem Georgia,"Times New Roman",serif;margin:8px 0}.meaning{font-weight:700;margin:0 0 12px}.pron{color:#626d81;line-height:1.7;margin-bottom:15px}
-    button{font:inherit;font-weight:650;padding:9px 13px;border:1px solid #cfd6e5;border-radius:10px;background:#fff;color:#172033;cursor:pointer}button:hover,button:focus-visible{border-color:#3157d5;outline:2px solid #3157d533}.primary{background:#3157d5;color:white;border-color:#3157d5}
-    #status{min-height:1.5em;color:#4e5a70;margin:14px 0}footer{font-size:.88rem;color:#596579;line-height:1.55}
+    main{width:min(760px,92vw);margin:52px auto;padding-bottom:40px}h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:0 0 8px}.sub{color:#5b6476;margin:0;line-height:1.6}
+    .card{background:#fff;border:1px solid #dce2f0;border-radius:18px;padding:22px;margin:22px 0;box-shadow:0 9px 25px #28345b12}
+    h2{font-size:1.1rem;margin:0 0 12px}.entry{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #e7eaf1;padding:15px 0}.entry:first-of-type{border-top:0}
+    .date{font-weight:750}.topic{color:#626d81;font-size:.94rem;margin-top:4px}a{color:#3157d5;text-decoration:none;font-weight:700}a:hover{text-decoration:underline}.open{white-space:nowrap;border:1px solid #cfd6e5;border-radius:10px;padding:9px 12px}
+    footer{font-size:.88rem;color:#596579;line-height:1.55}
   </style>
 </head>
 <body>
   <main>
-    <h1>오늘의 프랑스어 발음 카드</h1>
-    <p class="sub">2026년 10월 15일 · 집 문제 알리기</p>
-    <div class="bar"><button class="primary" onclick="playAll()">▶ 세 문장 이어 듣기</button><button onclick="stop()">■ 멈추기</button></div>
-    <section class="card"><div class="tag">PHRASE 01</div><div class="fr" lang="fr">Il y a un problème.</div><p class="meaning">문제가 있어요.</p><div class="pron">IPA /il i a œ̃ pʁɔ.blɛm/<br>한글 발음: 일 리 아 앙 프로블렘</div><div class="buttons"><button onclick="play(0,.9,1)">🔊 보통</button><button onclick="play(0,.62,1)">🐢 느리게</button><button onclick="play(0,.76,3)">↻ 3회 반복</button></div></section>
-    <section class="card"><div class="tag">PHRASE 02</div><div class="fr" lang="fr">Le chauffage ne marche pas.</div><p class="meaning">난방이 작동하지 않아요.</p><div class="pron">IPA /lə ʃo.faʒ nə maʁʃ pa/<br>한글 발음: 르 쇼파주 느 마흐슈 파</div><div class="buttons"><button onclick="play(1,.9,1)">🔊 보통</button><button onclick="play(1,.62,1)">🐢 느리게</button><button onclick="play(1,.76,3)">↻ 3회 반복</button></div></section>
-    <section class="card"><div class="tag">PHRASE 03</div><div class="fr" lang="fr">Vous pouvez m’aider ?</div><p class="meaning">저를 도와주실 수 있나요?</p><div class="pron">IPA /vu pu.ve mɛ.de/<br>한글 발음: 부 푸베 메데?</div><div class="buttons"><button onclick="play(2,.9,1)">🔊 보통</button><button onclick="play(2,.62,1)">🐢 느리게</button><button onclick="play(2,.76,3)">↻ 3회 반복</button></div></section>
-    <p id="status" role="status" aria-live="polite">재생 버튼을 눌러 문장을 들어 보세요.</p>
-    <footer>브라우저에 설치된 프랑스어 음성합성을 사용합니다. 음성이나 억양은 기기에 따라 다를 수 있습니다. Chrome 또는 Edge에서 열어 주세요.</footer>
+    <h1>프랑스어 발음 카드</h1>
+    <p class="sub">매일 학습한 문장을 날짜별로 보관합니다. 날짜를 선택하면 해당 일자의 카드와 발음 재생을 열 수 있어요.</p>
+    <section class="card" aria-labelledby="archive-heading">
+      <h2 id="archive-heading">학습 기록</h2>
+      <div class="entry">
+        <div><div class="date">2026년 10월 15일</div><div class="topic">집 문제 알리기 · 문장 3개</div></div>
+        <a class="open" href="./cards/2026-10-15.html">카드 열기 →</a>
+      </div>
+    </section>
+    <footer>새 학습 카드는 날짜별 페이지로 추가되며, 이 목록에서 이전 날짜의 카드도 다시 볼 수 있습니다.</footer>
   </main>
-  <script>
-    const phrases=['Il y a un problème.','Le chauffage ne marche pas.','Vous pouvez m’aider ?'];
-    let voices=[];const updateVoices=()=>{voices=speechSynthesis.getVoices()};updateVoices();speechSynthesis.onvoiceschanged=updateVoices;
-    function frenchVoice(){return voices.find(v=>v.lang.toLowerCase()==='fr-fr')||voices.find(v=>v.lang.toLowerCase().startsWith('fr'))||null}
-    function status(text){document.getElementById('status').textContent=text}
-    function stop(){speechSynthesis.cancel();status('재생을 멈췄습니다.')}
-    function queue(items){speechSynthesis.cancel();let n=0;const next=()=>{if(n>=items.length){status('끝났어요. 이제 직접 따라 말해 보세요.');return}const item=items[n++],u=new SpeechSynthesisUtterance(item.text);u.lang='fr-FR';u.rate=item.rate;const voice=frenchVoice();if(voice)u.voice=voice;u.onstart=()=>status('재생 중: '+item.text);u.onend=()=>setTimeout(next,400);u.onerror=()=>status('재생에 실패했어요. Chrome 또는 Edge에서 다시 시도해 주세요.');speechSynthesis.speak(u)};next()}
-    function play(i,rate,count){queue(Array.from({length:count},()=>({text:phrases[i],rate})))}
-    function playAll(){queue(phrases.map(text=>({text,rate:.82})))}
-  </script>
 </body>
 </html>
