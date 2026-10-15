@@ -1,17 +1,14 @@
-# 프랑스어 발음 카드 (GitHub Pages)
+# 프랑스어 발음 카드 아카이브
 
-이 폴더만 GitHub 저장소에 올리면 발음 카드 웹페이지로 배포할 수 있습니다. Obsidian 보관함의 다른 노트는 이 폴더에 넣지 마세요.
+공개 사이트: https://hyeon-seo-lab.github.io/french-pronunciation-cards/
 
-## GitHub에 올리고 배포하기
+`index.html`은 날짜별 카드 목록이고, 날짜별 발음 카드는 `cards/YYYY-MM-DD.html`에 저장합니다. 예를 들어 2026년 10월 15일 카드는 `cards/2026-10-15.html`입니다. 새 카드가 추가되어도 기존 날짜 카드는 그대로 보관됩니다.
 
-1. GitHub에서 새 저장소를 만들고 이름을 `french-pronunciation-cards`로 지정합니다.
-2. 저장소를 `Public`으로 설정합니다. GitHub Free 계정에서는 Pages 배포에 공개 저장소가 필요합니다.
-3. 이 폴더의 파일과 `.github` 폴더를 저장소 최상위에 업로드합니다. GitHub 웹에서 **Add file → Upload files**로 올려도 됩니다.
-4. `Settings → Pages`에서 **Build and deployment → Source**를 `GitHub Actions`로 설정합니다.
-5. `Actions` 탭에서 `Deploy pronunciation cards` 실행이 성공하면 페이지 주소는 `https://<GitHub아이디>.github.io/french-pronunciation-cards/`입니다.
+## 매일 카드 추가
 
-이 저장소의 Pages 사이트는 누구나 볼 수 있습니다. 파일에는 학습 문장만 포함되며, 개인 노트는 넣지 마세요. 발음은 방문자 브라우저의 프랑스어 음성합성 기능을 이용합니다.
+1. 그날의 프랑스어 표현으로 발음 카드 HTML을 만듭니다.
+2. `cards/YYYY-MM-DD.html`에 새 날짜 파일을 추가합니다.
+3. `index.html` 날짜 목록 맨 위에 링크를 추가하고 지난 링크는 모두 보존합니다.
+4. 변경을 커밋하면 GitHub Actions가 GitHub Pages를 자동으로 배포합니다.
 
-## 문장 갱신
-
-새 날짜의 발음카드 내용을 `index.html`에 반영해 저장소에 다시 올리면 Pages가 자동으로 재배포합니다.
+공개 저장소에는 프랑스어 학습 카드만 올립니다. Obsidian 개인 노트나 개인정보는 절대 넣지 않습니다. 발음은 방문자 브라우저의 프랑스어 음성합성(Web Speech API)을 사용합니다.
