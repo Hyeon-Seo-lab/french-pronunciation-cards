@@ -13,37 +13,55 @@
     h2{font-size:1.1rem;margin:0 0 12px}.entry{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #e7eaf1;padding:15px 0}.entry:first-of-type{border-top:0}
     .date{font-weight:750}.topic{color:#626d81;font-size:.94rem;margin-top:4px}a{color:#3157d5;text-decoration:none;font-weight:700}a:hover{text-decoration:underline}.open{white-space:nowrap;border:1px solid #cfd6e5;border-radius:10px;padding:9px 12px}
     footer{font-size:.88rem;color:#596579;line-height:1.55}
+  
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 6px}button{font:inherit;cursor:pointer;border:1px solid #cfd6e5;background:white;color:#3157d5;border-radius:99px;padding:8px 15px}button[aria-pressed="true"]{background:#3157d5;color:white;border-color:#3157d5}button:focus-visible{outline:3px solid #aab9ef;outline-offset:2px}.badge{display:inline-block;font-size:.76rem;padding:3px 8px;border-radius:99px;background:#eef2ff;color:#3157d5;margin-right:6px}.empty{color:#626d81;padding:20px 0}[hidden]{display:none!important}
   </style>
 </head>
 <body>
   <main>
     <h1>프랑스어 발음 카드</h1>
     <p class="sub">매일 학습한 문장을 날짜별로 보관합니다. 날짜를 선택하면 해당 일자의 카드와 발음 재생을 열 수 있어요.</p>
+    <nav class="filters" aria-label="학습 수준">
+      <button type="button" data-filter="all" aria-pressed="true">전체</button>
+      <button type="button" data-filter="A1" aria-pressed="false">A1 · 기초</button>
+      <button type="button" data-filter="A2" aria-pressed="false">A2 · 초급</button>
+      <button type="button" data-filter="B1" aria-pressed="false">B1 · 중급</button>
+      <button type="button" data-filter="B2" aria-pressed="false">B2 · 중상급</button>
+    </nav>
     <section class="card" aria-labelledby="archive-heading">
       <h2 id="archive-heading">학습 기록</h2>
-      <div class="entry">
-        <div><div class="date">2026년 10월 19일</div><div class="topic">행정 서류 작성하기 · 문장 3개</div></div>
+      <p id="empty" class="empty" hidden>아직 이 수준의 발음카드가 없습니다. 새 카드가 추가되면 여기에 표시됩니다.</p>
+      <div class="entry" data-level="A1">
+        <div><div class="date">2026년 10월 20일</div><div class="topic"><span class="badge">A1</span>말하는 언어 · 문장 3개</div></div>
+        <a class="open" href="./cards/2026-10-20.html">카드 열기 →</a>
+      </div>
+      <div class="entry" data-level="unclassified">
+        <div><div class="date">2026년 10월 19일</div><div class="topic"><span class="badge">기존 기초 자료</span>행정 서류 작성하기 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-19.html">카드 열기 →</a>
       </div>
-      <div class="entry">
-        <div><div class="date">2026년 10월 18일</div><div class="topic">시장에서 과일 사기 · 문장 3개</div></div>
+      <div class="entry" data-level="unclassified">
+        <div><div class="date">2026년 10월 18일</div><div class="topic"><span class="badge">기존 기초 자료</span>시장에서 과일 사기 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-18.html">카드 열기 →</a>
       </div>
-      <div class="entry">
-        <div><div class="date">2026년 10월 17일</div><div class="topic">기차표 사기 · 문장 3개</div></div>
+      <div class="entry" data-level="unclassified">
+        <div><div class="date">2026년 10월 17일</div><div class="topic"><span class="badge">기존 기초 자료</span>기차표 사기 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-17.html">카드 열기 →</a>
       </div>
-      <div class="entry">
-        <div><div class="date">2026년 10월 16일</div><div class="topic">길 묻기 · 문장 3개</div></div>
+      <div class="entry" data-level="unclassified">
+        <div><div class="date">2026년 10월 16일</div><div class="topic"><span class="badge">기존 기초 자료</span>길 묻기 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-16.html">카드 열기 →</a>
       </div>
-      <div class="entry">
-        <div><div class="date">2026년 10월 15일</div><div class="topic">집 문제 알리기 · 문장 3개</div></div>
+      <div class="entry" data-level="unclassified">
+        <div><div class="date">2026년 10월 15일</div><div class="topic"><span class="badge">기존 기초 자료</span>집 문제 알리기 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-15.html">카드 열기 →</a>
       </div>
     </section>
     <footer>새 학습 카드는 날짜별 페이지로 추가되며, 이 목록에서 이전 날짜의 카드도 다시 볼 수 있습니다.</footer>
   </main>
-</body>
+<script>
+const buttons=document.querySelectorAll('[data-filter]'),entries=document.querySelectorAll('.entry[data-level]');
+function filter(level){if(!['all','A1','A2','B1','B2'].includes(level))level='all';let visible=0;entries.forEach(e=>{e.hidden=level!=='all'&&e.dataset.level!==level;if(!e.hidden)visible++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===level)));document.getElementById('empty').hidden=visible!==0;}
+buttons.forEach(b=>b.addEventListener('click',()=>{const level=b.dataset.filter;history.replaceState(null,'',level==='all'?location.pathname:'#'+level);filter(level)}));window.addEventListener('hashchange',()=>filter(location.hash.slice(1)));filter(location.hash.slice(1)||'all');
+</script></body>
 </html>
 
