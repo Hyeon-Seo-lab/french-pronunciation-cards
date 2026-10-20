@@ -27,6 +27,8 @@
       <button type="button" data-filter="A2" aria-pressed="false">A2 · 초급</button>
       <button type="button" data-filter="B1" aria-pressed="false">B1 · 중급</button>
       <button type="button" data-filter="B2" aria-pressed="false">B2 · 중상급</button>
+      <button type="button" data-filter="C1" aria-pressed="false">C1 · 고급</button>
+      <button type="button" data-filter="C2" aria-pressed="false">C2 · 숙련</button>
     </nav>
     <section class="card" aria-labelledby="archive-heading">
       <h2 id="archive-heading">학습 기록</h2>
@@ -60,7 +62,7 @@
   </main>
 <script>
 const buttons=document.querySelectorAll('[data-filter]'),entries=document.querySelectorAll('.entry[data-level]');
-function filter(level){if(!['all','A1','A2','B1','B2'].includes(level))level='all';let visible=0;entries.forEach(e=>{e.hidden=level!=='all'&&e.dataset.level!==level;if(!e.hidden)visible++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===level)));document.getElementById('empty').hidden=visible!==0;}
+function filter(level){if(!['all','A1','A2','B1','B2','C1','C2'].includes(level))level='all';let visible=0;entries.forEach(e=>{e.hidden=level!=='all'&&e.dataset.level!==level;if(!e.hidden)visible++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===level)));document.getElementById('empty').hidden=visible!==0;}
 buttons.forEach(b=>b.addEventListener('click',()=>{const level=b.dataset.filter;history.replaceState(null,'',level==='all'?location.pathname:'#'+level);filter(level)}));window.addEventListener('hashchange',()=>filter(location.hash.slice(1)));filter(location.hash.slice(1)||'all');
 </script></body>
 </html>
