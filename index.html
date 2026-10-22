@@ -34,6 +34,14 @@
       <h2 id="archive-heading">학습 기록</h2>
       <p id="empty" class="empty" hidden>아직 이 수준의 발음카드가 없습니다. 새 카드가 추가되면 여기에 표시됩니다.</p>
       <div class="entry" data-level="A1">
+        <div><div class="date">2026년 10월 22일</div><div class="topic"><span class="badge">A1</span>말하는 언어 반복 · 문장 3개</div></div>
+        <a class="open" href="./cards/2026-10-22.html">카드 열기 →</a>
+      </div>
+      <div class="entry" data-level="A1">
+        <div><div class="date">2026년 10월 21일</div><div class="topic"><span class="badge">A1</span>말하는 언어 복습 · 문장 3개</div></div>
+        <a class="open" href="./cards/2026-10-21.html">카드 열기 →</a>
+      </div>
+      <div class="entry" data-level="A1">
         <div><div class="date">2026년 10월 20일</div><div class="topic"><span class="badge">A1</span>말하는 언어 · 문장 3개</div></div>
         <a class="open" href="./cards/2026-10-20.html">카드 열기 →</a>
       </div>
@@ -66,4 +74,5 @@ function filter(level){if(!['all','A1','A2','B1','B2','C1','C2'].includes(level)
 buttons.forEach(b=>b.addEventListener('click',()=>{const level=b.dataset.filter;history.replaceState(null,'',level==='all'?location.pathname:'#'+level);filter(level)}));window.addEventListener('hashchange',()=>filter(location.hash.slice(1)));filter(location.hash.slice(1)||'all');
 </script></body>
 </html>
+
 
